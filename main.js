@@ -1,5 +1,5 @@
 const Bot = require('messenger-bot')
-const tls = require('tls')
+const https = require('https')
 const fs = require('fs')
 
 const { token, verify, app_secret } = process.env
@@ -89,4 +89,4 @@ const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 }
-tls.createServer(options, bot.middleware()).listen(3000)
+https.createServer(options, bot.middleware()).listen(443)
